@@ -1,0 +1,78 @@
+<?php 
+
+namespace App\Controllers\{{package}};
+
+use App\Classes\Funcoes\RequestParams;
+use \App\Classes\Funcoes\SessionControl;
+use \App\Controllers\Admin\Common; 
+
+//USES ESPECIFICOS DO MÓDULO
+{{useTemplate}};
+{{useService}};
+
+/**
+* Classe responsável por gerenciar o módulo de {{controller}}
+*
+* @author autor
+*/
+class {{controller}} extends Common{
+  /**
+  * Atributo de link da página
+  */
+  protected $pagelink = PREFIX_DASHBOARD.'{{rota}}';
+  
+  /**
+  * Método responsável por chamar o template da index do módulo
+  * @method index
+  */
+  public function index(){
+    SessionControl::start_session();
+    return (new {{template}})->index();
+  }
+  
+  /**
+  * Método responsável por chamar o template do form 
+  * @method form
+  * @param int $id
+  */
+  public function form($id = ''){
+    return (new {{template}})->form($id);
+  }
+  
+  /**
+  * Método responsável por salvar os registros
+  * @method save
+  * @param array $request
+  * @return bool
+  */
+  public function save($request){
+    $request = RequestParams::getPostPutData($request);
+    $return  = $this->getRetornoErro();
+    
+    $retornoService = (new {{service}})->save($request);
+    
+    $mensagem = $retornoService['message'];
+    $return   = $retornoService['success'] ? $this->getRetornoSucesso($mensagem) : $this->getRetornoErro($mensagem);
+    
+    $return['route'] = $this->pagelink;
+    
+    print_r(json_encode($return));
+    exit();
+  }
+  
+  /**
+  * Método responsável por deletar os registros
+  * @method delete
+  * @param array $request
+  * @return bool
+  */
+  public function delete($id){
+    if(!is_numeric($id)) $this->getRetornoErro();
+    
+    $retornoService = (new {{service}})->destroy($id);
+    $return = $retornoService['success'] ? $this->getRetornoSucesso('Registro deletado com sucesso.') : $this->getRetornoErro('Erro ao apagar o registro');
+    
+    print_r(json_encode($return));
+    exit();
+  }
+}

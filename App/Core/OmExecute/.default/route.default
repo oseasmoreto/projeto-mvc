@@ -1,0 +1,47 @@
+<?php 
+
+namespace App\Routes\{{package}};
+
+use App\Middleware\Authenticate;
+{{useController}};
+use Slim\Http\Request;
+use Slim\Http\Response;
+
+/**
+*  Classe responsável por gerenciar as rotas de {{nomeRota}}
+*  @author autor
+*/
+
+class {{router}}{
+  
+  static protected $routes = [];
+  
+  /**
+  * Método responsável por gerenciar as rotas de {{nomeRota}}
+  * @method setRoute
+  * @param  \Slim\App $app
+  */
+  public static function setRoute($app){
+    
+    $app->get('/{{rota}}', function (Request $request, Response $response, $args) use ($app) {
+      return (new {{controller}})->index();
+    })->setName('{{nomeRota}}')->add(Authenticate::class);
+    
+    $app->map(['GET', 'POST'],'/{{rota}}/form', function (Request $request, $response, $args) use ($app) {
+      return (new {{controller}})->form();
+    })->setName('{{nomeRota}}')->add(Authenticate::class);
+    
+    $app->map(['GET', 'POST'],'/{{rota}}/form/{id}', function (Request $request, $response, $args) use ($app) {
+      return (new {{controller}})->form($args['id']);
+    })->setName('{{nomeRota}}')->add(Authenticate::class);
+    
+    $app->map(['GET', 'POST'],'/{{rota}}/save', function (Request $request, $response, $args) use ($app) {
+      return (new {{controller}})->save($request->getParsedBody());
+    })->setName('{{nomeRota}}')->add(Authenticate::class);
+    
+    $app->get('/{{rota}}/destroy/{id}', function ($request, $response, $args) use ($app) {
+      $id = $args['id'];  
+      return (new {{controller}})->delete($id);
+    })->setName('{{nomeRota}}')->add(Authenticate::class);
+  }
+}

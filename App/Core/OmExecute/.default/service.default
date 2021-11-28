@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Services\{{package}};
+
+{{useModel}};
+
+/**
+* Classe responsável por tratar os registros para ser salvos
+* @author autor
+*/
+
+class {{service}}{
+  /**
+  * Método responsável por preparar os registros para serem salvos
+  * @method save
+  * @param array $request
+  * @return array [
+  *      'success' => bool,
+  *      'message' => string,
+  *      'data'    => {{model}}
+  * ]
+  */
+  public function save($request) {
+    if(empty($request)) return [
+      'success' => false,
+      'message' => "Request vazia.",
+      'data'    => new {{model}}
+    ];
+    
+    $ob{{model}}  = $this->set($request);
+    $success = $ob{{model}}->save();
+    
+    if($success) return [
+      'success' => true,
+      'message' => "Registro salvo com sucesso.",
+      'data'    => $ob{{model}}
+    ];
+    
+    return [
+      'success' => false,
+      'message' => "Não foi possivel salvar o registro.",
+      'data'    => new {{model}}
+    ];
+  }
+  
+  public function destroy($id){
+    $ob{{model}} = {{model}}::find($id);
+    $success     = $ob{{model}}->delete();
+    
+    return [
+      'success' => $success
+    ];
+  }
+  
+  public function set($request){
+    $ob{{model}} = new {{model}};
+    if(isset($request['id']) and is_numeric($request['id'])){
+      $ob{{model}} = {{model}}::find($request['id']);
+    }
+    
+    //SETAR DADOS NO OBJETO
+    
+    return $ob{{model}};
+    }
+  }
+  

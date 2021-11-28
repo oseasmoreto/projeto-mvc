@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="loading" lang="pt-br" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <title>{% block title %}{% endblock %} | {{ TITULO_SISTEMA }}</title>
+    {% include "admin/includes/head.twig" %}
+    <!-- END: Page CSS-->
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu 1-column blank-page blank-page bg-login" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
+    <!-- BEGIN: Content-->
+    {% block body %}{% endblock %}
+    <!-- END: Content-->    
+    {% include "admin/includes/scripts.twig" %}
+</body>
+<!-- END: Body-->
+
+</html>

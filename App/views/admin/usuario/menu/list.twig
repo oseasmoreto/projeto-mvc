@@ -1,0 +1,33 @@
+{% extends "admin/layout/page-default.twig" %}
+
+{% block page %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Página</th>
+            <th scope="col">Ativo</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in listagem %}
+            <tr>
+                <td scope="row">{{item.title}}</td>
+                <td scope="row">{{item.page}}</td>
+                <td scope="row">
+                    {% if item.status == 'a' %}
+                        Ativo 
+                    {% else %} 
+                        Inativo
+                    {% endif %}
+                </td>
+                <td scope="row">
+                    <button title="Editar" onclick="redirect('{{routePage}}/form/{{item.idmenu}}')" class="btn btn-info"><i class="fa fa-edit"></i></button>
+                    <button title="Deletar" onclick="deletar('{{routePage}}/destroy/{{item.idmenu}}', '{{item.title}}')" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

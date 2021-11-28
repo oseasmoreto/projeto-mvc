@@ -1,0 +1,112 @@
+<meta charset="UTF-8">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="robots" content="noarchive">
+<meta name="reply-to" content="c">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:locale" content="pt-br">
+<meta property="og:url" content="{{ URL_DEFAULT_SITE }}">
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet" href="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/summernote/summernote-bs4.min.css">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?fav=true">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?fav=true">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?fav=true">
+<link rel="manifest" href="/images/site.webmanifest">
+<meta name="msapplication-TileColor" content="#387ac7">
+<meta name="theme-color" content="#387ac7">
+
+<!-- jQuery -->
+<script src="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!--JQUERY SERIALIZEJSON-->
+<script src="/templates/common/js/jquery.serializeJson.js"></script>
+
+<script src="/templates/common/js/preloader.js" type="text/javascript"></script>
+<script src="/templates/common/js/scripts.js" type="text/javascript"></script>
+
+<!-- DataTables -->
+<script src="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ URL_DEFAULT_TEMPLATE_SISTEMA }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="//mpryvkin.github.io/jquery-datatables-row-reordering/1.2.3/jquery.dataTables.rowReordering.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+<!-- summernote -->
+<link rel="stylesheet" href="/templates/common/css/dashboard.css">
+
+<script>
+
+var rowCache;
+
+$(document).ready(function() {
+    var dt = $('#ordering').dataTable();
+    dt.fnDestroy();
+});  
+$(function () {
+    table = $('.table.table-striped').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": false,
+      "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+        }
+    });
+  });
+</script>
+<style>
+table.dataTable thead th, table.dataTable thead td {
+    border-bottom: unset;
+}
+table.dataTable tfoot th, table.dataTable tfoot td {
+    border-top: unset;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+  padding: unset;
+}
+  .pagamento-adicionada{
+    cursor: pointer;
+  }
+  .categoria-adicionada{
+    cursor: pointer;
+  }
+</style>
+
+{% include "admin/layout/partials/preloader.twig" %}

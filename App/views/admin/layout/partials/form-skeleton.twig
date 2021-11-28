@@ -1,0 +1,14 @@
+{% extends "admin/layout/page-default.twig" %}
+
+{% block page %}
+    <form id="formcrud" action="{{routePage}}/save" autocomplete="off" class="form-register">
+
+        {% block form %}{% endblock %}
+
+        <div class="float-left">
+            <button type="button" onclick="window.history.back();" class="btn btn-info text-white"><i class="fas fa-angle-double-left"></i></button>
+            <button type="button" title="{{label}}"   onclick="register('#formcrud')" class="btn btn-success text-white"><i class="fa fa-save"></i></button>
+            <button type="button" title="Deletar" onclick="deletar('{{routePage}}/destroy/{{id}}', '{{descricao}}')" class="btn btn-danger text-white"><i class="fa fa-trash"></i></button>
+        </div>
+    </form>
+{% endblock %}

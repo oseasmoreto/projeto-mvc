@@ -1,0 +1,35 @@
+{
+  "name": "oseas/om-skeleton",
+  "description": "",
+  "require": {
+    "php": ">=7.0",
+    "illuminate/database": "*",
+    "illuminate/events": "*",
+    "phpmailer/phpmailer": "^6.0",
+    "slim/slim": "~3.0",
+    "coenjacobs/eloquent-composite-primary-keys": "^1.0",
+    "awobaz/compoships": "^2.0",
+    "ext-pdo": "*",
+    "ext-json": "*",
+    "vlucas/phpdotenv": "^5.3",
+    "twig/twig": "*",
+    "firebase/php-jwt": "^5.4",
+    "tuupola/cors-middleware": "^1.2"
+  },
+  "minimus-stability": "alpha",
+  "authors": [
+    {
+      "name": "Oseas Moreto",
+      "email": "contato@oseasmoreto.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MVC\\": "vendor/MVC/",
+      "App\\": "App/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}

@@ -1,0 +1,32 @@
+<?php 
+
+require_once(__DIR__.'\app\core\OmExecute\OM.php');
+require_once(__DIR__.'\app\core\OmExecute\Help.php');
+require_once(__DIR__.'\app\core\OmExecute\Module.php');
+require_once(__DIR__.'\app\core\OmExecute\Api.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\Colors.php');
+
+//CLASSES DOS MODULOS
+require_once(__DIR__.'\app\core\OmExecute\Generate\File.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\Controller.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\Model.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\Route.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\Service.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\Template.php');
+require_once(__DIR__.'\app\core\OmExecute\Generate\View.php');
+
+use \App\Core\OmExecute\OM;
+
+if(!isset($argv[1])) die(OM::readMe());
+
+$seletor = $argv[1];
+$params  = $argv;
+
+//REMOVE PARAMETROS NAO USAVEIS
+unset($params[0]);
+unset($params[1]);
+
+//REINDEXA O ARRAY
+sort($params);
+
+OM::commandsExec($seletor, $params);

@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Models\{{package}};
+
+use App\Core\Model;
+
+/**
+* Classe responsável por gerenciar as interações com o banco de dados da tabela {{table}}
+* @author autor
+*/
+class {{model}} extends Model {
+  protected $table      = '{{table}}';
+  protected $primaryKey = '{{pk}}';
+  public $timestamps    = false;
+  protected $guarded    = [];
+  
+  /**
+  * Método responsável por retornar todos os registros com filtragem
+  * @method static getPorFiltro
+  * @param  array $filtro [condicao1, condicao2]
+  * @return array
+  */
+  public static function getPorFiltro($where = []){
+    return self::getListagem([$where]);
+  }
+  
+  /**
+  * Método responsável por retornar a listagem dos {{table}}
+  * @method static getListagem
+  * @param array $request
+  * @return array
+  */
+  public static function getListagem($request = []){
+    
+    $ob{{model}} = new self;
+    
+    if(!empty($request)){
+      foreach($request as $key => $data){
+        $ob{{model}}->where($data[0], $data[1], $data[2]);
+      }
+    }
+    
+    return $ob{{model}}->get();
+  }
+}

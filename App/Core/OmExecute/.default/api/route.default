@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Routes\{{package}};
+
+use App\Core\Routes;
+use Slim\Http\Response;
+{{useController}};
+use App\Middleware\ApiAuthenticate;
+
+/**
+*  Classe responsável por gerenciar as rotas de {{nomeRota}}
+*  @author Oseas Moreto
+*/
+class {{router}} extends Routes{
+  
+  /**
+  * Método responsável por gerenciar as rotas de {{nomeRota}}
+  * @method setRoute
+  * @param  \Slim\App $app
+  */
+  public static function setRoute($app){
+    
+    /**
+    * Rota de listagem da API
+    */
+    $app->get('/{{rota}}/list', function ($request, $response, $args) use ($app) {
+      $retorno = (new {{controller}})->list($request->getQueryParams());
+      
+      $body = $response->getBody();
+      $body->write(json_encode($retorno));
+      
+      return $response
+      ->withBody($body)
+      ->withHeader('Content-type', 'application/json')
+      ->withStatus(200);
+    })->setName('{{nomeRota}}')->add(ApiAuthenticate::class);
+    
+    /**
+    * Rota de filtragem da API
+    */
+    $app->get('/{{rota}}/find', function ($request, $response, $args) use ($app) {
+      $retorno = (new {{controller}})->find($request->getQueryParams());
+      
+      $body = $response->getBody();
+      $body->write(json_encode($retorno));
+      
+      return $response
+      ->withBody($body)
+      ->withHeader('Content-type', 'application/json')
+      ->withStatus($retorno['code']);
+    })->setName('{{nomeRota}}')->add(ApiAuthenticate::class);
+  }
+}

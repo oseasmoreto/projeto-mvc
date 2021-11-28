@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Models\{{package}};
+
+use App\Core\Model;
+{{useModelPai}};
+
+/**
+* Classe responsável por gerenciar as interações com o banco de dados para a API
+* @author autor
+*/
+class {{model}} extends {{modelPai}} {
+  
+  /**
+  * Método responsável por retornar listagem de dados
+  * @method mixed getListagemApi()
+  * @param array $filter
+  * @return array
+  */
+  public static function getListagemApi($filter = []){
+    $banners = self::where("status", "a");
+    
+    if(isset($filter['title']))  $banners->where('title', 'LIKE', '%'.$filter['title'].'%');
+    if(isset($filter['limit']))  $banners->limit($filter['limit']);
+    if(isset($filter['offset'])) $banners->offset($filter['offset']);
+    
+    return $banners->get();
+    
+  }
+  
+  /**
+  * Método responsável por retornar filtros de dados
+  * @method mixed getListagemApi()
+  * @param array $filter
+  * @return array
+  */
+  public static function findByFilter($filter = []){
+    $banners = self::where("status", "a");
+    
+    if(isset($filter['id']))   return self::find($filter['id']);
+    if(isset($filter['hash'])) return $banners->where('hash', $filter['hash'])->first();
+    
+    return $banners->first();
+    
+  }
+}

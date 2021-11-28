@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Controllers\{{package}};
+
+use \App\Controllers\Api\Common;
+{{useModel}}
+
+/**
+* Classe responsável por gerenciar as acões de listagem na API
+*
+* @author Oseas Moreto
+*/
+class {{controller}} extends Common{
+  
+  /**
+  * Método responsável por listar os registros com base nos filtros
+  * @method list
+  * @param  array $filter
+  * @return array
+  */
+  public function list($filter = []){
+    $validarParametros = $this->filterValidate($filter);
+    
+    if(!empty($validarParametros)) return $validarParametros;
+    
+    $registros = {{model}}::getListagemApi($filter);
+    
+    switch (true) {
+      case count($registros) == 0:
+        return $this->returnApi(true, 404, ['result' => ['message' => 'Nenhum registro encontrado']]);
+        default:
+        return $this->returnApi(true, 200, ['result' => $registros]);
+      }
+    }
+    
+    /**
+    * Método responsável por filtrar os registros
+    * @method find
+    * @param  array $filter
+    * @return array
+    */
+    public function find($filter = []){
+      $validarParametros = $this->filterValidate($filter);
+      
+      if(!empty($validarParametros)) return $validarParametros;
+      
+      $registros = {{model}}::findByFilter($filter);
+      
+      switch (true) {
+        case !$registros instanceof {{model}}:
+          return $this->returnApi(true, 404, ['result' => ['message' => 'Nenhum registro encontrado']]);
+          default:
+          return $this->returnApi(true, 200, ['result' => $registros]);
+        }
+      }
+    }
+    

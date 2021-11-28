@@ -1,0 +1,99 @@
+{% extends "admin/layout/login.twig" %}
+
+{% block title %}{{titulo}}{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-lg-4 col-lg-4">
+            <div class="login-box">
+                <div class="login-logo text-center">
+                    <img class="w-50 pt-5" src="{{LOGO_SISTEMA}}" alt="">
+                </div>
+                <!-- /.login-logo -->
+                <div class="card">
+                    <div class="card-body login-card-body">
+                    <p class="login-box-msg">Inicie sua sessão</p>
+
+                    <form id="formlogin" action="{{ PREFIX_DASHBOARD }}/login/logar" method="post">
+                        <div class="input-group mb-3">
+                        <input name="username" title="Usuário" id="user-name" type="text" class="form-control round" placeholder="Digite seu usuário" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="input-group mb-3">
+                        <input type="password" title="Senha" name="password" class="form-control round" id="user-password" placeholder="Digite sua senha" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <button type="button" class="btn-link btn" data-toggle="modal" data-target="#exampleModal">
+                                Recuperar Senha
+                            </button>
+                        </div>
+                        <div class="row text-center">
+                        <!-- /.col -->
+                        <div class="col-12">
+                            <button onclick="login('#formlogin')" type="button" class="btn btn-primary btn-block">Entrar</button>
+                        </div>
+                        <!-- /.col -->
+                        </div>
+                    </form>
+                    </div>
+                    <!-- /.login-card-body -->
+                </div>
+            </div>
+                <!-- /.login-box -->
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #262626;color: #fff;">
+        <h5 class="modal-title" id="exampleModalLabel">Recuperar Senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form id="formrecuperar" action="{{ PREFIX_DASHBOARD }}/login/retrievepassword" method="post">
+        <div class="input-group mb-3">
+            <input name="email" title="E-mail" id="user-email" type="email" class="form-control round" placeholder="Digite seu E-mail" required>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="status_response" class="d-none text-center mt-2">
+                <div class="fa-3x">
+                    <i class="text-black fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+            <div class="text-center col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="response"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" onclick="login('#formrecuperar')" class="btn btn-primary">Enviar nova senha</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

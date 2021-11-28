@@ -1,0 +1,122 @@
+/* ================================================================================================
+// 	File Name: style.scss
+// 	Description: Style for customization.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Chameleon Admin - Modern Bootstrap 4 WebApp & Dashboard HTML Template + UI Kit
+// 	Version: 1.0
+// 	Author: ThemeSelection
+// 	Author URL: https://themeselection.com/
+// ================================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+/*responsive dynamic system*/
+body.vertical-layout[data-color=bg-gradient-x-purple-blue] .navbar-container, body.vertical-layout[data-color=bg-gradient-x-purple-blue] .content-wrapper-before {
+  background-color: #2a2a2a;
+  background-image: none; }
+
+.app-content .wizard > .actions > ul > li > a[href="#previous"] {
+  background-color: #585858; }
+
+.app-content .wizard > .actions > ul > li > a {
+  background-color: #2a2a2a; }
+
+.app-content .wizard > .steps > ul > li.done .step {
+  background-color: #2a2a2a; }
+
+.app-content .wizard > .steps > ul > li:after {
+  background-color: #2a2a2a; }
+
+.app-content .wizard > .steps > ul > li.current .step {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.301); }
+
+.app-content .wizard > .steps > ul > li.current .step {
+  color: #2a2a2a; }
+
+.app-content .wizard > .steps > ul > li:before {
+  background-color: #2a2a2a; }
+
+.list-categories-icons li {
+  margin: 0 15px; }
+  .list-categories-icons li a {
+    font-size: 2em;
+    color: #2a2a2a; }
+
+.card .card-content a {
+  color: #6b6f80; }
+
+.title-permormance {
+  font-size: 20px; }
+
+.-card i {
+  font-size: 23px !important; }
+.-card h1 {
+  font-size: 20px; }
+
+.icon-permormance {
+  font-size: 2em; }
+
+.-perf h1 {
+  font-size: 18px; }
+
+.title {
+  color: #fff; }
+
+.box {
+  /* position: fixed; */
+  left: 0;
+  top: 0;
+  background-color: #2a2a2a;
+  padding: 15px;
+  height: 100vh; }
+  .box .seasons {
+    height: 15%;
+    padding: 15px 0; }
+    .box .seasons p {
+      margin: 0;
+      color: #fff; }
+      .box .seasons p:nth-child(1) {
+        font-weight: bold;
+        font-size: 18px; }
+      .box .seasons p:nth-child(2) {
+        font-weight: normal;
+        color: #00b0f0;
+        font-size: 14px; }
+      .box .seasons p:nth-child(3) {
+        font-weight: normal;
+        font-size: 14px; }
+      .box .seasons p i {
+        color: #92d050; }
+
+@media (max-width: 849px) {
+  .box {
+    position: relative; } }
+@media (min-width: 992px) {
+  body.vertical-layout.vertical-menu .main-menu {
+    width: 260px; }
+
+  body.vertical-layout.vertical-menu .navbar-header {
+    width: 260px; }
+
+  body.vertical-layout.vertical-menu .content,
+  body.vertical-layout.vertical-menu .footer {
+    margin-left: 0; }
+
+  body.vertical-layout.vertical-menu.menu-flipped .content {
+    margin: 0;
+    margin-right: 260px; }
+
+  body.vertical-layout.vertical-menu.menu-flipped .navbar-header {
+    float: right; }
+
+  body.vertical-layout.vertical-menu.menu-flipped .navbar .navbar-container {
+    margin: 0;
+    margin-right: 260px; }
+
+  body.vertical-layout.vertical-menu.menu-flipped .footer {
+    margin: 0;
+    margin-right: 260px; } }
+
+/*# sourceMappingURL=style.css.map */

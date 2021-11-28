@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>{% block title %}{% endblock %} | {{ TITULO_SISTEMA }}</title>
+    {% include "admin/includes/head.twig" %}
+</head>
+<body class="dark-mode sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    {% include "admin/includes/menu.twig" %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        {% include "admin/includes/breadcrumb.twig" %}
+        {% block body %}{% endblock %}
+    </div>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+{% include "admin/includes/scripts.twig" %}
+{% include "admin/includes/modal.twig" %}
+{% include "admin/includes/footer.twig" %}
+</body>
+</html>

@@ -1,0 +1,109 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title" id="hidden-label-round-controls"><?php echo $this->titulo_pagina ?></h4>
+            <a class="heading-elements-toggle">
+                <i class="la la-ellipsis-v font-medium-3"></i>
+            </a>
+            <div class="heading-elements">
+                <ul class="list-inline mb-0">
+                    <li>
+                        <a data-action="collapse">
+                            <i class="ft-minus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-action="reload">
+                            <i class="ft-rotate-cw"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-action="expand">
+                            <i class="ft-maximize"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-action="close">
+                            <i class="ft-x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-content collpase show">
+            <div class="card-body">
+
+                <div class="card-text">
+                    <?php if (isset($this->view->errormessage)) {?>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert <?php echo $this->view->classe ?>">
+                                    <?php echo $this->view->errormessage ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }?>
+                    <div id="status_response" class="d-none text-center mt-2 mb-2">
+                        <div class="fa-3x">
+                            <i class="text-dark fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                    <div class="text-center p-t-115">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="response"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="formcrud" action="/users/form/<?php echo $this->view->obj->codAdmin ?>" class="form-register">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Nome">Nome</label>
+                                <input type="text" required  name="name" title="Nome completo" value="<?php echo $this->view->obj->nome ?>" class="form-control round" placeholder="Nome completo">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="E-mail">E-mail</label>
+                                <input type="email" required  name="email" title="E-mail" value="<?php echo $this->view->obj->email ?>" class="form-control round" placeholder="Insira o email do usuário">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Celular">Usuário:</label> <?php echo $this->view->obj->usuario ?><br>
+                                <label for="Grupo de Acesso">Grupo de Acesso: </label> <?php echo $this->view->obj->group->description; ?>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Celular">Senha</label>
+                                <input type="password" name="password" title="Senha" <?php echo $this->view->obj->codAdmin == '' ? 'required' : '' ?> class="form-control round" id="password" placeholder="Digite sua senha">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Celular">Confirmar Senha</label>
+                                <input type="password" name="password" title="Confirmar Senha" <?php echo $this->view->obj->codAdmin == '' ? 'required' : '' ?> class="form-control round" id="password_again" placeholder="Confirmar senha">
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="id" value="<?php echo $this->view->obj->codAdmin ?>">
+                    <input type="hidden" name="bloqueado" value="<?php echo $this->view->obj->bloqueado ?>">
+                    <input type="hidden" name="user" value="<?php echo $this->view->obj->usuario ?>">
+                    <input type="hidden" name="idgroup" value="<?php echo $this->view->obj->idgroup ?>">
+                    <input type="hidden" name="password_old" value="<?php echo $this->view->obj->senha ?>">
+                    <input type="hidden" name="urlpage" id="urlpage" value="<?php echo $this->view->url ?>">
+                    <input type="hidden" name="urlredirect" id="urlredirect" value="/perfil/<?php echo $this->view->obj->codAdmin ?>">
+                    <button type="button" onclick="register('#formcrud')" class="btn btn-success text-white"><?php echo $this->view->label ?></button><button type="button" onclick="window.history.back();" class="ml-3 btn btn-info text-white">Voltar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

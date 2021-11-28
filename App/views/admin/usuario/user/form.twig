@@ -1,0 +1,68 @@
+{% extends "admin/layout/partials/form-skeleton.twig" %}
+
+{% block form %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" required  name="name" title="Nome" value="{{dados.name}}" class="form-control round" placeholder="Nome">
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label for="E-mail">E-mail</label>
+                <input type="email" name="email" title="E-mail" value="{{dados.email}}" class="form-control round" placeholder="E-mail">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="Telefone/Celular">Telefone/Celular</label>
+                <input type="tel" name="phone" title="Telefone/Celular" value="{{dados.phone}}" class="form-control round" placeholder="Telefone/Celular">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Grupo de Acesso:</label>
+                <select name="idgroup" class="form-control" title="Grupo de Acesso">
+                    {% for grupo in grupos %}
+                        <option {% if dados.idgroup == grupo.idgroup %}selected{% endif %} value="{{grupo.idgroup}}">{{grupo.description}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="Usuário">Usuário</label>
+                <input type="text" name="user" title="Usuário" value="{{dados.user}}" class="form-control round" placeholder="Usuário">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Senha">Senha</label>
+                <input type="password" autocomplete="new-password" {% if dados.iduser == '' %}required{% endif %} name="password" title="Senha" value="" class="form-control round" placeholder="Senha">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Confirmar Senha">Confirmar Senha</label>
+                <input type="password" {% if dados.iduser == '' %}required{% endif %} name="confirmpassword" title="Confirmar Senha" value="" class="form-control round" placeholder="Confirmar Senha">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label d-none d-sm-block">Ativo:</label>
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" name="status" id="status" value="a" {% if dados.status == 'a' %}checked{% endif %} class="custom-control-input">
+                        <label class="custom-control-label" for="status">Sim</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" name="status" id="status2" value="i" {% if dados.status == 'i' %}checked{% endif %} class="custom-control-input">
+                        <label class="custom-control-label" for="status2">Não</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="iduser" value="{{dados.iduser}}" />
+    </div>
+{% endblock %}

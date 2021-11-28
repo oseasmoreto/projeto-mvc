@@ -1,0 +1,80 @@
+<?php
+namespace App\Templates\{{package}};
+
+use App\Templates\Admin\Modulos\TemplateLoad;
+use stdClass;
+
+{{useModel}};
+
+/**
+* Classe responsável por gerenciar os templates da {{model}}
+* @class TemplateHome
+* @author Oseas Moreto
+*/
+
+class {{template}} extends TemplateLoad{
+  
+  public $parameters = null;
+  private $folder    = '{{viewPath}}';
+  
+  public function __construct(){
+    //HERDA O CONSTRUCT PAI
+    parent::__construct();
+    
+    $this->parameters           = new stdClass;
+    $this->parameters->adds     = new stdClass;
+    $this->parameters->view     = $this->folder.'/list';
+    $this->parameters->title    = 'Novo Template';
+    $this->parameters->routePage = PREFIX_DASHBOARD.'{{rota}}';
+    $this->parameters->list     = [];
+    
+    $breadcrumb = [];
+    
+    $breadcrumb[0]['url']    = '/dashboard';
+    $breadcrumb[0]['label']  = 'Dashboard';
+    $breadcrumb[0]['active'] = false;
+    
+    $breadcrumb[1]['url']    = '#';
+    $breadcrumb[1]['label']  = 'Novo Template';
+    $breadcrumb[1]['active'] = true;
+    
+    $this->parameters->breadcrumb = $breadcrumb;
+  }
+  
+  /**
+  * Método responsável por renderizar a index do crud
+  * @method index
+  * @return html/twig
+  */
+  public function index(){ 
+    $addsParameters = [];
+    $addsParameters['listagem'] = {{model}}::getListagem();
+    
+    return $this->indexAdminDefault($this->parameters, $addsParameters);
+  }
+  
+  /**
+  * Método responsável por renderizar o formulario com ou sem registros
+  * @method form
+  * @param integer $id
+  * @return html/twig
+  */
+  public function form($id = null){ 
+    $addsParameters = [];
+
+    $ob{{model}} = {{model}}::find($id);
+    $addsParameters['dados']  = !$ob{{model}} instanceof {{model}} ? new {{model}} : $ob{{model}};
+    $this->parameters->view   = $this->folder.'/form';
+    
+    if(!is_numeric($id)) $addsParameters['dados']->status = 'a';
+    
+    if($ob{{model}} instanceof {{model}}){
+      $addsParameters['id']        = $addsParameters['dados']->id;
+      $addsParameters['descricao'] = $addsParameters['dados']->title;
+      
+      $addsParameters['label']  = !is_numeric($id) ? 'Cadastrar' : 'Editar';
+    }
+    
+    return $this->indexAdminDefault($this->parameters, $addsParameters);
+  }
+}

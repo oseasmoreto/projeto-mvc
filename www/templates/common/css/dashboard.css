@@ -1,0 +1,187 @@
+body {
+    color: #262626;
+}
+
+.bg-login{
+    background-color: #2d3441 !important;
+}
+
+.dataTables_filter, .dataTables_paginate{
+    float: right;
+}
+.layout-fixed .main-sidebar {
+    background-color: #2d3441;
+}
+.navbar-white {
+    background-color: #ed416a;
+}
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*="sidebar-dark-"] .nav-sidebar > .nav-item:hover > .nav-link, [class*="sidebar-dark-"] .nav-sidebar > .nav-item > .nav-link:focus {
+    background-color: #ed416a;
+    color: #fff;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ed416a;
+    border-color: #ed416a;
+    box-shadow: none;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #e50037;
+    border-color: #e50037;
+}
+
+.card-header {
+    background-color: #ed416a;
+    color: white;
+}
+
+.card{
+    border-radius: 0px;
+-webkit-box-shadow: 10px 10px 30px -17px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 30px -17px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 30px -17px rgba(0,0,0,0.75);
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-control:active, .form-control:focus {
+    border:none;
+    border-bottom: 2px solid #ed416a;;
+    border-radius: 0;
+}
+
+.dark-mode .input-group-text{
+    border-color: #ed416a;
+    border-top: 0;
+    border-left: 0;
+}
+
+.btn{
+    border-radius: 0px;
+    -webkit-box-shadow: 10px 10px 30px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 30px -17px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 30px -17px rgba(0,0,0,0.75);
+}
+
+.login-box, .register-box{
+    width: 100%;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #fff !important;
+}
+
+.logo-sidebar{
+    min-height: 57px;
+    text-align: center;
+    background: #2d3441;
+    padding: 0 !important;
+}
+
+.logo-sidebar img{
+    max-height: 50px;
+}
+
+.alertify .ajs-header{
+    background: #ed416a !important;
+    color: #fff;
+    text-align: center;
+}
+
+.alertify.ajs-closable .ajs-commands button.ajs-close{
+    display: none;
+}
+
+.alertify .ajs-dialog{
+    border:none;
+}
+
+
+.preloader-wrapper {
+    height: 100%;
+    width: 100%;
+    background: rgba(69, 77, 85, .8) !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+}
+
+.dark-mode .preloader{
+    background: rgba(69, 77, 85, .8) !important;
+
+}
+
+.preloader-wrapper .preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 200px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: #fff;
+}
+.dark-mode a:not(.btn):hover {
+    color: #ed416a;
+}
+
+table.dataTable tbody tr{
+    background-color: #343a40 !important;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate{
+    color: #fff;
+}
+
+.dark-mode .custom-file-label, .dark-mode .custom-file-label::after, .dark-mode .form-control:not(.form-control-navbar):not(.form-control-sidebar):not(.is-invalid):not(:focus){
+    border: none;
+    border-bottom: 1px solid #ed416a;
+}
+
+.dark-mode .btn-primary{
+    background-color: #ed416a;
+    border-color: #ed416a;
+    box-shadow: none;
+}
+
+.dark-mode .btn-primary:hover {
+    color: #fff;
+    background-color: #d84b6c;
+    border-color: #d84b6c;
+}
+
+.dark-mode .btn-primary:not(:disabled):not(.disabled).active, .dark-mode .btn-primary:not(:disabled):not(.disabled):active, .show > .dark-mode .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #d84b6c !important;
+    border-color: #d84b6c !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle{
+    background-color: #d84b6c;
+    border-color: #d84b6c;
+
+}
+
+.nav-treeview{
+    background-color: rgba(0,0,0,0.1) !important;
+}
+
+.descricao-dados h5{
+    border-bottom: 1px solid #666;
+    margin: 20px 0;
+    font-size: 20px;
+    color: #f1f1f1;
+}
