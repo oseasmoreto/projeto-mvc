@@ -1,6 +1,17 @@
-# projeto-mvc
-Painel MVC Básico para criar Admins em PHP
+# Projeto MVC Básico
+Mini framework MVC básico para projetos em PHP, com intuito de facilitar a criação de projetos MVCs.
+
+## Estrutura
+- **Routes**: Slim Framework;
+- **Models**: Eloquent;
+- **Templates/Views**: Twig.
+
+## Instalação
+- 1.  Clone o projeto;
+- 2. Execute o comando *"composer install"*;
+- 3. Execute *"php om-execute start"* para iniciar o projeto.
 
 ## Acesso 
-#user: useradmin
-#senha: senhafortesansao1324
+**URL**: {{sua_url}}/admin
+**user**: useradmin
+**pass**: senhafortesansao1324
